@@ -1,7 +1,7 @@
 # Commonly used footprints
 *NOTE: This project was originally for use in APRL*
 
-This repo contains a set of common libraries to use with KiCAD for clubs such as APRL (Aggie Propulsion & Rocketry Lab). It contains common footprints and their symbols.
+This repo contains a set of common libraries to use with KiCAD for clubs such as APRL (Aggie Propulsion & Rocketry Lab). It contains common footprints **ONLY**. It is up to the designer to map the footprint numbers to their schematic symbols. Be sure to check datasheets!
 
 ## Usage
 Simply use git submodules to add this repo. I'd recommend adding a subdirectory to your project called "external", then adding the submodule there. This is because I used the following convention to embed 3D models:
@@ -36,7 +36,7 @@ Courtyards should be defined. The ones for Worthington are defined as their outl
 | ARPL_Logo | Daniel & Co. | The APRL logo. Slightly cleaned up and aligned as to not trigger DRC. |
 | {R,C,L,LED}_0402 |Worthington | "The perfect 0402" + Their courtyard recommendations |
 | {R,C,L,LED}_0603 |Worthington | "The perfect 0603" + Their courtyard recommendations |
-| {R,C,L}_0805 |Worthington | "The perfect 0805"  + Arbitrary courtyard (Currently .13mm) |
+| {R,C,L}_0805 |Worthington | "The perfect 0805"  + Arbitrary courtyard (Currently 0.13mm) |
 | SOD323 | Nolan | An SOD-323 footprint which uses larger pads. |
 
 
