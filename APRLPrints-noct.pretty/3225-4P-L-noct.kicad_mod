@@ -1,4 +1,4 @@
-(footprint "3225-4P-noct"
+(footprint "3225-4P-L-noct"
 	(version 20241229)
 	(generator "pcbnew")
 	(generator_version "9.0")
@@ -15,7 +15,7 @@
 			)
 		)
 	)
-	(property "Value" "3225-4P"
+	(property "Value" "3225-4P-L"
 		(at 0.25 1.8 0)
 		(unlocked yes)
 		(layer "F.Fab")
@@ -55,8 +55,8 @@
 	)
 	(attr smd)
 	(fp_line
-		(start -2.2 -1.8)
-		(end -2.2 -0.45)
+		(start -2.2 0.325)
+		(end -2.2 1.675)
 		(stroke
 			(width 0.1)
 			(type default)
@@ -65,8 +65,8 @@
 		(uuid "1a147370-9955-4a93-906b-968320bfd996")
 	)
 	(fp_line
-		(start -0.65 -1.8)
-		(end -2.2 -1.8)
+		(start -0.65 1.7)
+		(end -2.2 1.7)
 		(stroke
 			(width 0.1)
 			(type default)
@@ -87,32 +87,32 @@
 		)
 	)
 	(pad "1" smd roundrect
-		(at -1.05 -0.8)
+		(at -1.05 0.7)
 		(size 1.4 1.2)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
-		(uuid "277b29ad-3d86-4e4c-8fc3-4ab3ce86e288")
+		(uuid "06bb8f8a-9217-4b4b-a262-802e7378db5e")
 	)
 	(pad "2" smd roundrect
-		(at 1.05 -0.8)
-		(size 1.4 1.2)
-		(layers "F.Cu" "F.Mask" "F.Paste")
-		(roundrect_rratio 0.15)
-		(uuid "ada871de-d033-431e-b19e-0da9137863e6")
-	)
-	(pad "3" smd roundrect
 		(at 1.05 0.7)
 		(size 1.4 1.2)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
 		(uuid "b7d8ce4d-40bb-40f5-bbe6-45ad7363746d")
 	)
-	(pad "4" smd roundrect
-		(at -1.05 0.7)
+	(pad "3" smd roundrect
+		(at 1.05 -0.8)
 		(size 1.4 1.2)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(roundrect_rratio 0.15)
-		(uuid "06bb8f8a-9217-4b4b-a262-802e7378db5e")
+		(uuid "ada871de-d033-431e-b19e-0da9137863e6")
+	)
+	(pad "4" smd roundrect
+		(at -1.05 -0.8)
+		(size 1.4 1.2)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15)
+		(uuid "277b29ad-3d86-4e4c-8fc3-4ab3ce86e288")
 	)
 	(embedded_fonts no)
 	(model "${KIPRJMOD}/external/APRLPrints/external/footprint/packages3d/CRYSTAL-SMD_4P-L3.2-W2.5-BL-2.step"
