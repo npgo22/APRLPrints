@@ -25,7 +25,7 @@ Everything **MUST** be in accordance with JLCPCB standards. Most importantly, th
 
 Polarized components should be identified with a set of lines. For multi-pin packages, an arrow indicator does fine. If it works, a few lines might also do. Whatever looks best is the convention here, and is left to the discretion of the engineer.
 
-Courtyards should be defined. The ones for Worthington are defined as their outliers / 2, such that you can place components right up against each other to be complaint.
+Courtyards should be defined. The ones for Worthington are defined as their outliers / 2, such that you can place components right up against each other to be compliant.
 
 
 ## Footprint list:
