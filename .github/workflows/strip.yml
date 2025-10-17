@@ -9,6 +9,8 @@ on:
 jobs:
   process-footprints:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - name: Checkout repository
@@ -52,6 +54,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update processed footprints (nofp, nod, and nodnofp variants)"
+            git commit -m "Update processed footprints (nofp)"
             git push
           fi
