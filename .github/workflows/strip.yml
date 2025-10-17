@@ -23,32 +23,32 @@ jobs:
         run: |
           python3 strip.py
           
-      - name: Upload footprints without courtyards
-        uses: actions/upload-artifact@v4
-        with:
-          name: footprints-nofp
-          path: APRLPrints-nofp.pretty/
-          retention-days: 90
+      # - name: Upload footprints without courtyards
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: footprints-nofp
+      #     path: APRLPrints-nofp.pretty/
+      #     retention-days: 90
           
-      - name: Upload footprints without designators
-        uses: actions/upload-artifact@v4
-        with:
-          name: footprints-nod
-          path: APRLPrints-nod.pretty/
-          retention-days: 90
+      # - name: Upload footprints without designators
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: footprints-nod
+      #     path: APRLPrints-nod.pretty/
+      #     retention-days: 90
           
-      - name: Upload footprints without designators and courtyards
-        uses: actions/upload-artifact@v4
-        with:
-          name: footprints-nodnofp
-          path: APRLPrints-nodnofp.pretty/
-          retention-days: 90
+      # - name: Upload footprints without designators and courtyards
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: footprints-nodnofp
+      #     path: APRLPrints-nodnofp.pretty/
+      #     retention-days: 90
           
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add APRLPrints-nofp.pretty/ APRLPrints-nod.pretty/ APRLPrints-nodnofp.pretty/
+          git add APRLPrints-nofp.pretty/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
