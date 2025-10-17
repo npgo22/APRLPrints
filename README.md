@@ -36,7 +36,7 @@ Courtyards should be defined. The ones for Worthington are defined as their outl
 | ARPL_Logo | Daniel & Co. | The APRL logo. Slightly cleaned up and aligned as to not trigger DRC. |
 | {R,C,L,LED}_0402 |Worthington | "The perfect 0402" + Their courtyard recommendations |
 | {R,C,L,LED}_0603 |Worthington | "The perfect 0603" + Their courtyard recommendations |
-| {R,C,L}_0805 |Worthington | "The perfect 0805"  + Arbitrary courtyard |
+| {R,C,L}_0805 |Worthington | "The perfect 0805"  + Arbitrary courtyard (Currently .13mm) |
 | SOD323 | Nolan | An SOD-323 footprint which uses larger pads. |
 
 
