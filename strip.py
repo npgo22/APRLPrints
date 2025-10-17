@@ -3,12 +3,12 @@
 Script to process KiCad footprint files by removing courtyards and/or designators.
 
 This script processes .kicad_mod files and can:
-  - Remove courtyard layers (F.CrtYd and B.CrtYd) - saves to APRLPrints-nofp.pretty
+  - Remove courtyard layers (F.CrtYd and B.CrtYd) - saves to APRLPrints-noct.pretty
   - Remove designator (reference) fields - saves to APRLPrints-nod.pretty
   - Remove both courtyards and designators - saves to APRLPrints-nodnofp.pretty
 
 Output files are saved with appropriate suffixes:
-  - '-nofp' for footprints without courtyards
+  - '-noct' for footprints without courtyards
   - '-nod' for footprints without designators
   - '-nodnofp' for footprints without both designators and courtyards
 """
@@ -42,18 +42,21 @@ def has_courtyard(content: str) -> bool:
     return bool(re.search(courtyard_pattern, content))
 
 
-def strip_courtyard_from_content(content: str) -> str:
+def strip_courtyard_from_content(content: str, suffix: str = '') -> str:
     """
     Remove all courtyard-related elements from KiCad file content.
     
     This function removes complete geometric elements (fp_rect, fp_line, fp_poly, 
     fp_circle, fp_arc) that are on courtyard layers (F.CrtYd or B.CrtYd).
     
+    Also renames the footprint by appending the suffix to the footprint name.
+    
     Args:
         content: The file content as a string
+        suffix: Suffix to append to the footprint name (e.g., '-noct')
         
     Returns:
-        Content with courtyard elements removed
+        Content with courtyard elements removed and footprint renamed
     """
     lines = content.split('\n')
     result_lines = []
@@ -100,7 +103,16 @@ def strip_courtyard_from_content(content: str) -> str:
     if removed_count > 0:
         logger.info(f"  Removed {removed_count} courtyard element(s)")
     
-    return '\n'.join(result_lines)
+    result_content = '\n'.join(result_lines)
+    
+    # Rename the footprint by appending the suffix
+    if suffix:
+        # Match the footprint declaration at the beginning of the file
+        # Format: (footprint "NAME"
+        footprint_pattern = r'^(\(footprint\s+"[^"]+)(")'
+        result_content = re.sub(footprint_pattern, rf'\1{suffix}\2', result_content, count=1, flags=re.MULTILINE)
+    
+    return result_content
 
 # KiCAD will just re-add the designator.
 # def remove_designator(content: str) -> str:
@@ -160,7 +172,7 @@ def strip_courtyard_from_content(content: str) -> str:
 
 
 def process_file(input_path: Path, output_path: Path, strip_courtyard: bool = True, 
-                 strip_designator: bool = False) -> bool:
+                 strip_designator: bool = False, suffix: str = '') -> bool:
     """
     Process a single KiCad footprint file.
     
@@ -169,6 +181,7 @@ def process_file(input_path: Path, output_path: Path, strip_courtyard: bool = Tr
         output_path: Path where the processed file should be saved
         strip_courtyard: If True, remove courtyard layers
         # strip_designator: If True, remove the reference designator field
+        suffix: Suffix to append to the footprint name (e.g., '-noct')
         
     Returns:
         True if processing was successful, False otherwise
@@ -185,10 +198,14 @@ def process_file(input_path: Path, output_path: Path, strip_courtyard: bool = Tr
         if strip_courtyard:
             if has_courtyard(content):
                 logger.info(f"  Processing {input_path.name} (removing courtyards)...")
-                processed_content = strip_courtyard_from_content(processed_content)
+                processed_content = strip_courtyard_from_content(processed_content, suffix)
                 modified = True
             else:
                 logger.warning(f"  No courtyard found in {input_path.name}")
+                # Still rename the footprint even if no courtyard found
+                if suffix:
+                    footprint_pattern = r'^(\(footprint\s+"[^"]+)(")'
+                    processed_content = re.sub(footprint_pattern, rf'\1{suffix}\2', processed_content, count=1, flags=re.MULTILINE)
         
         # Strip designator if requested
         # if strip_designator:
@@ -234,7 +251,7 @@ def main():
     # Define processing configurations
     # Each config is a tuple of (suffix, output_dir_name, strip_courtyard, strip_designator)
     configs = [
-        ('-nofp', 'APRLPrints-nofp.pretty', True, False),       # No footprint (courtyard)
+        ('-noct', 'APRLPrints-noct.pretty', True, False),       # No courtyard
         # ('-nod', 'APRLPrints-nod.pretty', False, True),         # No designator
         # ('-nodnofp', 'APRLPrints-nodnofp.pretty', True, True),  # No designator and no footprint
     ]
@@ -261,7 +278,7 @@ def main():
             output_filename = f"{base_name}{suffix}.kicad_mod"
             output_file = output_dir / output_filename
             
-            if process_file(input_file, output_file, strip_courtyard, strip_designator):
+            if process_file(input_file, output_file, strip_courtyard, strip_designator, suffix):
                 success_count += 1
         
         # Print summary for this configuration
