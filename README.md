@@ -40,6 +40,15 @@ Courtyards should be defined. The ones for Worthington are defined as their outl
 | SOD323 | Nolan | An SOD-323 footprint which uses larger pads. |
 
 
+## Courtyard stripping
+This repo contains a script to automatically strip footprints. You may run it with:
+```bash
+python3 strip.py
+```
+There is a GitHub action to automatically run this between commits.
+
+NOTE: If reference designators are stripped from the footprint, KiCAD will simply re-add them. As such, that functionality is currently commented out of the script.
+
 ## Other notes:
 For the sake of our designs, and as a matter of opinion, reference designators should likely be removed. Because we use iBom and other tooling, we have far more convenient ways of searching up silkscreens. Wasting time to place designators (which will ultimately lead to worse design decisions as a result of changing via placement) is just not worth it.
 
