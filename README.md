@@ -36,11 +36,12 @@ Courtyards should be defined. The ones for Worthington are defined as their outl
 |---------|----------|---------------------------------------------------------------|
 | 3225-4P(-L) | Akoustis | A common footprint for 4 pad crystal oscillators. Very compact. |
 | ARPL_Logo | Daniel & Co. | The APRL logo. Slightly cleaned up and aligned as to not trigger DRC. |
-| {R,C,L,LED}_0402 |Worthington | "The perfect 0402" + Their courtyard recommendations |
-| {R,C,L,LED}_0603 |Worthington | "The perfect 0603" + Their courtyard recommendations |
-| {R,C,L}_0805 |Worthington | "The perfect 0805"  + Arbitrary courtyard (Currently 0.14mm/2 all around) |
+| {R,C,L,LED}_0402 |Worthington | "The perfect 0402" + 0.2mm courtyard |
+| {R,C,L,LED}_0603 |Worthington | "The perfect 0603" + 0.2mm courtyard |
+| {R,C,L}_0805 |Worthington | "The perfect 0805"  + 0.2mm courtyard |
 | SOD323 | Nolan | An SOD-323 footprint which uses larger pads. |
 | SKRPANE010 | Nolan | Tim's favorite button |
+| LSMGA160808T601RG | Nolan | Tim's favorite ferrite |
 
 
 ## Courtyard stripping

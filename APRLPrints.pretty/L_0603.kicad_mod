@@ -55,15 +55,15 @@
 	)
 	(attr through_hole)
 	(fp_rect
-		(start -1.14 -0.61)
-		(end 1.14 0.61)
+		(start -1.25 -0.7)
+		(end 1.25 0.7)
 		(stroke
 			(width 0.05)
-			(type default)
+			(type solid)
 		)
 		(fill no)
 		(layer "F.CrtYd")
-		(uuid "e2b9d8ad-283a-4ad2-a022-3c28bc20e431")
+		(uuid "f4ad6072-d724-4c2a-a293-f4c714852e51")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)

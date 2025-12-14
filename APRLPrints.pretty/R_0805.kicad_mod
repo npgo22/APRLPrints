@@ -55,11 +55,11 @@
 	)
 	(attr through_hole)
 	(fp_rect
-		(start -1.42 -0.77)
-		(end 1.42 0.77)
+		(start -1.55 -0.9)
+		(end 1.55 0.9)
 		(stroke
 			(width 0.05)
-			(type default)
+			(type solid)
 		)
 		(fill no)
 		(layer "F.CrtYd")
