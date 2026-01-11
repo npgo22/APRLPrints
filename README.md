@@ -42,7 +42,7 @@ Courtyards should be defined. The ones for Worthington are defined as their outl
 | SOD323 | Nolan | An SOD-323 footprint which uses larger pads. |
 | SKRPANE010 | Nolan | Tim's favorite button |
 | LSMGA160808T601RG | Nolan | Tim's favorite ferrite |
-
+| Fuse_0805_2012Metric | Nolan | Littelfuse 0805L Polyfuse |
 
 ## Courtyard stripping
 This repo contains a script to automatically strip footprints. You may run it with:
